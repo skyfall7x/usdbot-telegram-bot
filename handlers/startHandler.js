@@ -50,9 +50,11 @@ async function registerUser(ctx) {
     }
 
     // Build MiniApp URL with referral
-    const miniappUrl = referralCode
-      ? `https://cryptoprofit.cloud/miniapp/?ref=${referralCode}`
-      : 'https://cryptoprofit.cloud/miniapp/';
+    const botUsername = process.env.BOT_USERNAME; // contoh: usdtbot_ai_bot
+
+const miniappUrl = referralCode
+  ? `https://t.me/${botUsername}/app?startapp=${referralCode}`
+  : `https://t.me/${botUsername}/app`;
 
     // Send welcome message with launch button
     await ctx.reply(
@@ -82,3 +84,4 @@ async function registerUser(ctx) {
 }
 
 module.exports = { registerUser };
+
